@@ -1,0 +1,38 @@
+<div class="card float-left m-2  text-dark   " style="width:18rem;background: #74ebd5;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ACB6E5, #74ebd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+">
+
+  <img style="height:200px" src="{{add.image.url}}" class="card-img-top" alt="">
+
+
+  <div class="card-body">
+    {% if add.user.profile.image %}
+
+    <div class=" float-right">
+     <img class="rounded-circle " src="{{add.user.profile.image.url}} " alt="" height="50px" width="50px">
+    </div>
+    {% endif %}
+
+    <div class="card-title">
+
+      <span class="lead">Add BY {{add.user}}</span> <br>
+      {{add.title}}
+
+    </div>
+    <a style="background: #f12711;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+" class="btn btn-success" href="post/{{add.slug}}">VIEW </a>
+
+
+
+
+  </div>
+
+
+
+
+
+</div>

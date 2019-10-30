@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %} {{post_to_view.title}} {% endblock %}
+
+
+{% block content %}
+
+{% include 'inline_single.html' with edit_or_not=edit_or_not %}
+
+{% endblock %}

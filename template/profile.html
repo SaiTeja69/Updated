@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %} profile {% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+{% if messages %}
+
+{% for m in messages %}
+
+<div class="alert alert-{{m.tags}}">
+
+  {{m}}
+
+</div>
+
+{% endfor %}
+
+{% endif %}
+
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{{user.profile.image.url}}" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{user.username}}</h5>
+        <p class="card-text">{{ user.email }}</p>
+        <p class="card-text"><small class="text-muted"></small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="col-md-12 float-left text-light  mx-auto mt-1" style="background: #EB5757;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #000000, #EB5757);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #000000, #EB5757); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+">
+
+<h1 class="lead "> Update Profile</h1>
+  <form  action="." method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{ u_f|crispy}}
+    {{ p_f|crispy}}
+
+
+
+
+  <button style="background: #f12711;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+"  class="btn btn-success" type="submit" name="button"> update</button>
+
+  </form>
+
+</div>
+
+
+ {% endblock %}

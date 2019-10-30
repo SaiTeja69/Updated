@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} posts home {% endblock %}
+
+
+{% block content %}
+
+{% if messages %}
+
+{% for m in messages %}
+
+<div class="alert alert-{{m.tags}}">
+{{m}}
+</div>
+{% endfor %}
+
+{% endif%}
+
+
+{% for add in adds %}
+
+{% include 'inline_all.html' %}
+
+{% endfor %}
+{% endblock %}

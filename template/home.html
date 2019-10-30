@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %} main home {% endblock %}
+
+{% block content %}
+
+<div class="col-md-12 bg-danger rounded" style="background: #11998e;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #38ef7d, #11998e);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #38ef7d, #11998e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+">
+  <h1 class="font-italic font-weight-lighter text-center">  Lending Portal</h1>
+
+</div>
+
+{% if  user.is_authenticated %}
+
+<div class="col-md-12  ">
+
+
+  <img src="{{request.user.profile.image.url}}" class="float-left mr-2"  width="40px" height="40px" alt="">
+<p>  <a style="background: #FC5C7D;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #6A82FB, #FC5C7D);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #6A82FB, #FC5C7D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+"  class="btn btn-success" href="profile/"> Edit Your Profile ( {{user.username}}  ) </a> </p>
+</div>
+{% else %}
+
+<div class="col-md-12 bg-success" style="background: #1a2a6c;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+">
+<p  class="text-center" >  <a  href="/login/" class="text-light"> Login To Access Your Post</a>  </p>
+</div>
+
+{% endif %}
+
+{% for add in adds %}
+
+{% include 'inline_home.html' with x='yoolo' %}
+
+{% endfor %}
+
+
+{% endblock %}
